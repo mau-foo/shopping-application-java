@@ -55,7 +55,7 @@ public class ShoppingCartManager {
 					System.out.println("Enter the item quantity:");
 					cartItemQuantity = Integer.parseInt(userInput.nextLine());
 
-					shoppingCart.addItem(new ItemToPurchase(cartItemName, cartItemDescription, cartItemPrice, cartItemQuantity));
+					shoppingCart.addItem(new ItemToPurchase(cartItemName, cartItemQuantity, cartItemPrice, cartItemDescription));
 					System.out.println(shoppingMenu);
 					break;
 				case 'd':

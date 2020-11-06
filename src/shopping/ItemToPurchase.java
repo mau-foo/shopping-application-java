@@ -6,23 +6,27 @@ public class ItemToPurchase {
 	private int itemPrice;
 	private int	itemQuantity;
 	
-
 	public ItemToPurchase() {
-		itemName = "none";
-		itemDescription = "none";
-		itemPrice = 0;
-		itemQuantity = 0;
+		this("none", 0, 0, "none");
+	}
+	
+	public ItemToPurchase(String itemName) {
+		this(itemName, 0, 0, "none");
 	}
 	
 	public ItemToPurchase(String itemName, int itemQuantity) {
-		this(itemName, "none", 0, itemQuantity);
+		this(itemName, itemQuantity, 0, "none");
 	}
 	
-	public ItemToPurchase(String itemName, String itemDescription, int itemPrice, int itemQuantity) {
+	public ItemToPurchase(String itemName, int itemQuantity, int itemPrice) {
+		this(itemName, itemQuantity, itemPrice, "none");
+	}
+	
+	public ItemToPurchase(String itemName, int itemQuantity, int itemPrice, String itemDescription) {
 		this.itemName = itemName;
-		this.itemDescription = itemDescription;
-		this.itemPrice = itemPrice;
 		this.itemQuantity = itemQuantity;
+		this.itemPrice = itemPrice;
+		this.itemDescription = itemDescription;
 	}
 	
 	public void setName(String newItemName) {
