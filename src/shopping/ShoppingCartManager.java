@@ -50,11 +50,15 @@ public class ShoppingCartManager {
 					cartItemName = userInput.nextLine();
 					System.out.println("Enter the item description:");
 					cartItemDescription = userInput.nextLine();
-					System.out.println("Enter the item price:");
-					cartItemPrice = Integer.parseInt(userInput.nextLine());
-					System.out.println("Enter the item quantity:");
-					cartItemQuantity = Integer.parseInt(userInput.nextLine());
-
+					try {
+						System.out.println("Enter the item price:");
+						cartItemPrice = Integer.parseInt(userInput.nextLine());
+						System.out.println("Enter the item quantity:");
+						cartItemQuantity = Integer.parseInt(userInput.nextLine());
+					} catch (NumberFormatException numFormatExcpt) {
+						System.out.println("Invalid number. Please select option to add item again and enter valid number.");
+						continue;
+					}
 					shoppingCart.addItem(new ItemToPurchase(cartItemName, cartItemQuantity, cartItemPrice, cartItemDescription));
 					System.out.println(shoppingMenu);
 					break;
@@ -69,9 +73,13 @@ public class ShoppingCartManager {
 					System.out.println("CHANGE ITEM QUANTITY");
 					System.out.println("Enter the item name:");
 					cartItemName = userInput.nextLine();
-					System.out.println("Enter the new quantity:");
-					cartItemQuantity = Integer.parseInt(userInput.nextLine());
-					
+					try {
+						System.out.println("Enter the new quantity:");
+						cartItemQuantity = Integer.parseInt(userInput.nextLine());
+					} catch (NumberFormatException numFormatExcpt) {
+						System.out.println("Invalid number. Please select option to modify item again and enter valid number.");
+						continue;
+					}	
 					shoppingCartItem = new ItemToPurchase(cartItemName, cartItemQuantity);
 					shoppingCart.modifyItem(shoppingCartItem);
 					System.out.println(shoppingMenu);
